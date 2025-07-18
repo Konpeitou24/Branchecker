@@ -111,7 +111,7 @@ namespace Branchecker.Shells {
             if (string.IsNullOrWhiteSpace(AskBranchText)) return;
             AiResponseList = ["考え中..."];
             var ai = new GeminiApiClient(httpClient, config);
-            var result = await ai.GenerateTextAsync(config["Prompts:AiSuggest"] ?? string.Empty) ?? string.Empty;
+            var result = await ai.GenerateTextAsync(string.Join(Environment.NewLine, config["Prompts:AiSuggest"], AskBranchText, AskDescriptionText)  ?? string.Empty) ?? string.Empty;
             AiResponseList = [.. result.Split(' ', StringSplitOptions.RemoveEmptyEntries)];
         }
 
@@ -122,7 +122,7 @@ namespace Branchecker.Shells {
             if (string.IsNullOrWhiteSpace(AskBranchText)) return;
             AiInferredTasksList = ["考え中..."];
             var ai = new GeminiApiClient(httpClient, config);
-            var result = await ai.GenerateTextAsync(config["Prompts:AiInferred"] ?? string.Empty) ?? string.Empty;
+            var result = await ai.GenerateTextAsync(string.Join(Environment.NewLine, config["Prompts:AiInferred"], AskBranchText, AskDescriptionText) ?? string.Empty) ?? string.Empty;
             AiInferredTasksList = [.. result.Split(' ', StringSplitOptions.RemoveEmptyEntries)];
         }
 
