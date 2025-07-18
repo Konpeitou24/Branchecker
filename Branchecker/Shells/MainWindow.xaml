@@ -57,8 +57,21 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Label Content="{Binding AiInferredTasksLabelTitle}"/>
-                        <ListBox ItemsSource="{Binding AiInferredTasksList}"/>
+                        <Label Grid.Row="0" Content="{Binding AiInferredTasksLabelTitle}"/>
+                        <ListBox Grid.Row="1" ItemsSource="{Binding AiInferredTasksList}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox Grid.Column="0" Margin="5"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding}" TextWrapping="Wrap" Margin="5" FontFamily="Consolas"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </Grid>
                 </Border>
             </Grid>
