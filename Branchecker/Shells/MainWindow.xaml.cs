@@ -10,15 +10,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Branchecker
-{
+namespace Branchecker {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow(MainWindowViewModel viewModel)
-        {
+    public partial class MainWindow : Window {
+        public MainWindow(MainWindowViewModel viewModel) {
             InitializeComponent();
         }
     }
