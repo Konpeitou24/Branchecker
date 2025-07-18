@@ -16,7 +16,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Column="0" Margin="5">
+                <Border Grid.Row="0" Grid.Column="0" Margin="5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -31,7 +31,7 @@
                     </Grid>
                 </Border>
                 <GridSplitter Grid.Column="0" HorizontalAlignment="Right" Width="5"/>
-                <Border Grid.Column="1" Margin="5">
+                <Border Grid.Row="0" Grid.Column="1" Margin="5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -50,7 +50,7 @@
                         </ListBox>
                     </Grid>
                 </Border>
-                <GridSplitter Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="5"/>
+                <GridSplitter Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="5"/>
                 <Border Grid.Row="1" Grid.ColumnSpan="2" Margin="5">
                     <Grid Grid.Row="1">
                         <Grid.RowDefinitions>
