@@ -1,4 +1,6 @@
 ﻿using Branchecker.Shells;
+using Microsoft.Extensions.Configuration;
+using System.Net.Http;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +19,8 @@ namespace Branchecker {
     public partial class MainWindow : Window {
         public MainWindow(MainWindowViewModel viewModel) {
             InitializeComponent();
+            DataContext = viewModel;
+
         }
     }
 }
