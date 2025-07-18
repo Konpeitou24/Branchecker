@@ -8,45 +8,58 @@
     <TabControl>
         <TabItem Header="{Binding BranchCheckToolHeaderName}">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Margin="5">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Margin="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Content="{Binding AskBranchLabelTitle}"/>
+                            <TextBox Grid.Row="1" Text="{Binding AskBranchText}"/>
+                            <Label Grid.Row="2" Content="{Binding AskDescriptionLableTitle}"/>
+                            <TextBox Grid.Row="3" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" Text="{Binding AskDescriptionText}"/>
+                        </Grid>
+                    </Border>
+                    <GridSplitter Grid.Column="0" HorizontalAlignment="Right" Width="5"/>
+                    <Border Grid.Column="1" Margin="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                        <Label Grid.Row="0" Content="{Binding AskBranchLabelTitle}"/>
-                        <TextBox Grid.Row="1" Text="{Binding AskBranchText}"/>
-                        <Label Grid.Row="2" Content="{Binding AskDescriptionLableTitle}"/>
-                        <TextBox Grid.Row="3" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" Text="{Binding AskDescriptionText}"/>
-                    </Grid>
-                </Border>
-                <GridSplitter Grid.Column="0" HorizontalAlignment="Right" Width="5"/>
-                <Border Grid.Column="1" Margin="5">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Row="0" Content="{Binding BranchCheckStatus}" MinHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                        <Label Grid.Row="1" Content="{Binding AiResponseLabelTitle}"/>
-                        <ListBox Grid.Row="2" ItemsSource="{Binding AiResponseList}">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="5" FontFamily="Consolas"/>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </Grid>
-                </Border>
+                            <Label Grid.Row="0" Content="{Binding BranchCheckStatus}" MinHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="1" Content="{Binding AiResponseLabelTitle}"/>
+                            <ListBox Grid.Row="2" ItemsSource="{Binding AiResponseList}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="5" FontFamily="Consolas"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="{Binding AiInferredTasksLabelTitle}"/>
+                    <ListBox ItemsSource="{Binding AiInferredTasksList}"/>
+                </Grid>
             </Grid>
         </TabItem>
     </TabControl>
